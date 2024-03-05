@@ -50,3 +50,7 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Exemplos da aula de revisão 
+Aula-00/bin/*
+.vscode/*
