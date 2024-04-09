@@ -1,0 +1,3 @@
+
+
+void ajustaFGetsString(char *str);

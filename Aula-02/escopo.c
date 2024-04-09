@@ -52,3 +52,81 @@ void geradorDeSinais(double x[], int n)
     return;
 }
 
+double media(double x[], int n)
+{
+    double soma = 0;
+    for(int i = 0; i < n; i++)
+        soma += x[i];
+    double xMed = soma/n;
+    return xMed;
+}
+
+double maxmin(double x[], int n, int isMax)
+{
+    double maior, menor;
+    menor = maior = x[0];
+    for(int i = 1; i < n; i++)
+    {
+        if(x[i] < menor)
+            menor = x[i];
+        else if(x[i] > maior)
+            maior = x[i];
+    }
+    if(isMax)
+        return maior;
+    else
+        return menor;
+}
+
+void maxminRetorno(double x[], int n, int *iMin, int *iMax)
+{
+    *iMin = *iMax = 0;
+    for(int i = 1; i < n; i++)
+    {
+        if(x[i] < x[*iMin])
+            *iMin = i;
+        else if(x[i] > x[*iMax])
+            *iMax = i;
+    }
+    return;
+}
+
+void maxminRetorno2(double x[], int n, double *min, double *max)
+{
+    double maior, menor;
+    menor = maior = x[0];
+    for(int i = 1; i < n; i++)
+    {
+        if(x[i] < menor)
+            menor = x[i];
+        else if(x[i] > maior)
+            maior = x[i];
+    }
+    *min = menor;
+    *max = maior;
+}
+
+double maxminRetorno3(double x[], int n, double *min)
+{
+    double maior, menor;
+    menor = maior = x[0];
+    for(int i = 1; i < n; i++)
+    {
+        if(x[i] < menor)
+            menor = x[i];
+        else if(x[i] > maior)
+            maior = x[i];
+    }
+    *min = menor;
+    return maior;
+}
+
+void escalaArray(double x[], int n)
+{
+    return;
+}
+
+void normaliza(double x[], int n)
+{
+    return;
+}
