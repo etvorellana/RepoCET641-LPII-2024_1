@@ -54,3 +54,5 @@ dkms.conf
 # Exemplos da aula de revisão 
 Aula-00/bin/*
 .vscode/*
+Aula-01/output/*
+Lista-01/output/*
