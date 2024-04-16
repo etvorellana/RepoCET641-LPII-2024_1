@@ -10,9 +10,9 @@ int desenhaTabuleiro(int tamanho) {
 
     for (int coluna = 0; coluna < tamanho * 5; coluna++) {
 
-      if ((linha % 5 == 0 && coluna % 5 == 5) ||
-          (linha % 5 == 5 && coluna % 5 == 0) ||
-          (linha % 5 == 5 && coluna % 5 == 5)) {
+      if ((linha / 5 == 0 && coluna / 5 == 5) ||
+          (linha / 5 == 5 && coluna / 5 == 0) ||
+          (linha / 5 == 5 && coluna / 5 == 5)) {
         printf("  ");
       } else {
 
