@@ -55,7 +55,7 @@ int desenhaTriangulo(int tamanho, int tipo) {
         break;
     case 3:
         for (int i = tamanho; i >= 1; i--) {
-            printf("%*s", 2 * (tamanho - i), "");
+            printf("%*s", tamanho - i, "");
             if (desenhaLinha(i, linha) == 0) {
                 printf("%s\n", linha);
             }
@@ -63,7 +63,7 @@ int desenhaTriangulo(int tamanho, int tipo) {
         break;
     case 4:
         for (int i = 1; i <= tamanho; i++) {
-            printf("%*s", 2 * (tamanho - i), "");
+            printf("%*s", tamanho - i, "");
             if (desenhaLinha(i, linha) == 0) {
                 printf("%s\n", linha);
             }
