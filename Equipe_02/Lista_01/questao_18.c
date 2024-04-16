@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<string.h>
+#include "lista_01.h"
 int quantidadeA(char x[],int n){
   int qtA=0;
   if(n==0)

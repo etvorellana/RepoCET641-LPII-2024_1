@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 #include "lista_01.h"
 
 int N = 4;

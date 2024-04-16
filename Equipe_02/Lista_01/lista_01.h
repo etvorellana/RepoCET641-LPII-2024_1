@@ -11,10 +11,8 @@ int desenhaTriangulo(int tamanho, int tipo);
 int desenhaPiramide(int tamanho, int tipo);
 int desenhaTabuleiro(int tamanho);
 
-int desenhaLinha(int tamanho, char linha);
-int desenhaTriangulo2(int tamanho, int tipo);
-int desenhaLinhaR(int tamanho, char linha[], int indice);
-int desenhaLinha2(int tamanho, char linha[], int indice);
+int desenhaLinha(int tamanho, char linha[]);
+int desenhaLinhaR(int tamanho, char linha[]);
 
 double valorMedio(double x[]);
 double desvioPadraoG(double x[ ]);
@@ -27,7 +25,7 @@ void normalizaN(double x_inout[ ], int n);
 double valorMedioArr(double x[], int N);
 void inversor(double arr[], int n);
 void escreveCon(char *c);
-int palindromo(char *c,int n, int i);
+int palindromo(char *c, int n, int i);
 int maiorNumero(int arr[], int n);
 int repeteC(char *c);
 

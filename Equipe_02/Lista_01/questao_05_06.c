@@ -1,6 +1,5 @@
 #include<stdio.h>
-int desenhaLinha(int,char[]);
-int desenhaTriangulo(int, int);
+#include "lista_01.h"
 int main(){
   int tamanho=5;
   char linha[tamanho];
