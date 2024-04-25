@@ -25,7 +25,7 @@ int desenhaPiramide(int tamanho, int tipo)
             case 1:
                 for(int i = 0; i < tamanho; i++)
                 {
-                    for(int j = 0; j < tamanho - i; j++)
+                    for(int j = 0; j < tamanho - i - 1; j++)
                         printf(" ");
 
                     for(int j = 0; j <= i; j++)
