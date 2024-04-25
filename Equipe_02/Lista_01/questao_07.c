@@ -2,7 +2,7 @@
 #include "lista_01.h"
 int main() {
 	int n = 5;
-	char linha[5];
+	char linha[n+1];
 	desenhaLinhaR(n, linha);
 	putchar('\n');
 	desenhaTriangulo(n, 1);
