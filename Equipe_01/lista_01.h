@@ -151,22 +151,16 @@ int desenhaTabuleiro(int tamanho) {
   }
 
   for (int linha = 0; linha < tamanho * 5; linha++) {
-
     for (int coluna = 0; coluna < tamanho * 5; coluna++) {
 
-      if ((linha % 5 == 0 && coluna % 5 == 5) ||
-          (linha % 5 == 5 && coluna % 5 == 0) ||
-          (linha % 5 == 5 && coluna % 5 == 5)) {
+      if ((linha / 5 + coluna / 5) % 2 == 0) {
         printf("  ");
       } else {
-
-        if ((linha / 5) % 2 == (coluna / 5) % 2) {
-          printf("  ");
-        } else {
-          printf("* ");
+        
+      printf("* ");
         }
-      }
     }
+
     printf("\n");
   }
   return 0;
