@@ -283,17 +283,22 @@ void inverterValor(double array[], int tamanho) {
 }
 
 
-void inverterString(char str[]) {
-    
-if (str[0] == '\0') {
+void inverterString(char str[], int i, int n) {
+
+    if (i >= n){
         return;
     } else {
+        char temp;
 
-    inverterString(str + 1);
-    printf("%c", str[0]);
-     
+        temp = str[i];
+        str[i] = str[n];
+        str[n] = temp;
+
+        inverterString(str, i + 1, n - 1); 
+      
     }
 }
+
 
 
 int ehPalindromo(char str[], int n) {
