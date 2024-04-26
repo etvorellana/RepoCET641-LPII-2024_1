@@ -3,7 +3,7 @@ int N;
 int desenhaQuadrado(int tamanho, int vazado) {
 
   if (tamanho <= 0 || tamanho > 20) {
-    printf("Tamanho inválido");
+    printf("Tamanho invÃ¡lido");
     return 1;
   }
 
@@ -46,68 +46,61 @@ int desenhaQuadrado(int tamanho, int vazado) {
 
 int desenhaTriangulo(int tamanho, int tipo) {
   if (tamanho < 1 || tamanho > 20) {
-    printf("Tamanho inválido");
+    printf("Tamanho invÃ¡lido");
     return 1;
-  } else
+  } else {
+
+    char linha[21];
 
     switch (tipo) {
     case 1:
       for (int i = 1; i <= tamanho; i++) {
-        for (int j = 1; j <= i; j++) {
-          printf("* ");
-        }
+        desenhaLinhaR(i, linha);
         printf("\n");
       }
       break;
     case 2:
       for (int i = tamanho; i >= 1; i--) {
-        for (int j = 1; j <= i; j++) {
-          printf("* ");
-        }
-        for (int j = 1; j <= tamanho - i; j++) {
-          printf("  ");
-        }
+        desenhaLinhaR(i, linha);
         printf("\n");
       }
       break;
     case 3:
       for (int i = tamanho; i >= 1; i--) {
         for (int j = 1; j <= tamanho - i; j++) {
-          printf("  ");
+          printf(" ");
         }
-        for (int j = 1; j <= i; j++) {
-          printf("* ");
-        }
+        desenhaLinhaR(i, linha);
         printf("\n");
       }
       break;
     case 4:
       for (int i = 1; i <= tamanho; i++) {
         for (int j = tamanho - i; j >= 1; j--) {
-          printf("  ");
+          printf(" ");
         }
-        for (int j = 1; j <= i; j++) {
-          printf("* ");
-        }
+        desenhaLinhaR(i, linha);
         printf("\n");
       }
       break;
     default:
-      printf("Tipo de triângulo inválido.\n");
+      printf("Tipo invÃ¡lido");
       return 2;
     }
+  }
+  return 0;
 }
 
 
 int desenharPiramide(int tamanho, int tipo) {
 
   if(tamanho < 1 || tamanho > 20) {
-    printf("Tamanho inválido");
+    printf("Tamanho invÃ¡lido");
     return 1;
   }
 
   if(tipo != 0 && tipo != 1){
-    printf("Tipo inválido");
+    printf("Tipo invÃ¡lido");
     return 1;
   }
 
@@ -195,15 +188,15 @@ int desenhaLinha(int tamanho, char linha[]) {
 }
 
 
-int desenhaLinhaR(int tamanho, char linha[], int indice) {
-    if (indice == tamanho) {
-        linha[indice] = '\0';
-        return 0;
-    } else {
-        linha[indice] = '*';
-
-        return desenhaLinhaR(tamanho, linha, indice + 1);
-    }
+int desenhaLinhaR(int tamanho, char linha[]) {
+  if (tamanho < 1 || tamanho > 20) {
+    return 1;
+  } else {
+    linha[tamanho - 1] = '*';
+    desenhaLinhaR(tamanho - 1, linha);
+    printf("%c", linha[tamanho - 1]);
+  }
+  return 0;
 }
 
 
