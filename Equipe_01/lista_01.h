@@ -282,14 +282,15 @@ void inverterValor(double array[], int tamanho, int indice) {
 
 
 void inverterString(char str[]) {
-    if (strlen(str) <= 1)
+    
+if (str[0] == '\0') {
         return;
+    } else {
 
-    char temp = str[0];
-    str[0] = str[strlen(str) - 1];
-    str[strlen(str) - 1] = temp;
-
-    inverterString(&str[1]);
+    inverterString(str + 1);
+    printf("%c", str[0]);
+     
+    }
 }
 
 
