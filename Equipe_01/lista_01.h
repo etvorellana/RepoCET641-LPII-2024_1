@@ -269,15 +269,17 @@ double valorMedio(double x[], int n) {
 }
 
 
-void inverterValor(double array[], int tamanho, int indice) {
+void inverterValor(double array[], int tamanho) {
 
-  if (indice == tamanho) {
+  if (tamanho == 0) {
     return;
   }
 
-  array[indice] = 1.0 / array[indice];
 
-  inverterValor(array, tamanho, indice + 1);
+  array[tamanho - 1] = 1.0 / array[tamanho -1];
+
+  inverterValor(array, tamanho - 1);
+
 }
 
 
