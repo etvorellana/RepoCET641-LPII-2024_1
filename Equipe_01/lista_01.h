@@ -294,18 +294,18 @@ if (str[0] == '\0') {
 }
 
 
-int ehPalindromo(char str[]) {
-    char strInvertida[strlen(str) + 1];
-
-    strcpy(strInvertida, str);
-
-    inverterString(strInvertida);
-
-    if (strcmp(str, strInvertida) == 0)
-        return 1;
-    else
+int ehPalindromo(char str[], int n) {
+   
+      if (n <= str[0]) {
         return 0;
-}
+      }
+        
+       if (str[0] != str[n]) {
+              return 1;
+   
+  }
+    return ehPalindromo(str + 1, n - 1);
+  }
 
 
 int encontrarMaiorRecursivo(int array[], int tamanho) {
