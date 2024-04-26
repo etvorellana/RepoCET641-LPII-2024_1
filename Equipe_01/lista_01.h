@@ -301,19 +301,21 @@ void inverterString(char str[], int i, int n) {
 
 
 
-int ehPalindromo(char str[], int n) {
-   
-      if (n <= str[0]) {
-        return 0;
-      }
-        
-       if (str[0] != str[n]) {
-              return 1;
-   
-  }
-    return ehPalindromo(str + 1, n - 1);
-  }
+int ehPalindromo(char str[], int i, int n){
 
+    if(i >= n){
+        return 1;
+    }
+
+    else{
+        if (str[i] != str[n]){
+            return 0;
+        }
+    }
+
+    return ehPalindromo(str, i + 1, n - 1); 
+  
+}
 
 int encontrarMaiorRecursivo(int array[], int tamanho) {
     if (tamanho == 1) {
