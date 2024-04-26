@@ -1,49 +1,51 @@
 #include <stdio.h>
-#include <string.h>
+  #include <string.h>
 
-void inverterString(char str[]) {
-    // Verifica se a string tem tamanho 0 ou 1, nesse caso não há nada para inverter
-    if (strlen(str) <= 1)
+  void inverterString(char str[]) {
+    
+if (str[0] == '\0') {
         return;
+    } else {
 
-    // Troca o primeiro e o último caractere
-    char temp = str[0];
-    str[0] = str[strlen(str) - 1];
-    str[strlen(str) - 1] = temp;
-
-    // Chama a função recursivamente com a string sem o primeiro e o último caractere
-    inverterString(&str[1]);
+    inverterString(str + 1);
+    printf("%c", str[0]);
+     
+    }
 }
 
-int ehPalindromo(char str[]) {
-    // String auxiliar para armazenar a cópia da string original
-    char strInvertida[strlen(str) + 1];
+  int ehPalindromo(char str[], int n) {
+   
+      if (n <= str[0]) {
+        return 0;
+      }
+        
+       if (str[0] != str[n]) {
+              return 1;
+   
+  }
+    return ehPalindromo(str + 1, n - 1);
+  }
+  int main() {
 
-    // Copia a string original para a string auxiliar
-    strcpy(strInvertida, str);
+      char str[100];
 
-    // Inverte a string auxiliar
-    inverterString(strInvertida);
+      // Solicita a entrada da string ao usuÃ¡rio
+      printf("Digite uma string: ");
+      gets(str);
+      
 
-    // Compara a string original com a string invertida
-    if (strcmp(str, strInvertida) == 0)
-        return 1; // É um palíndromo
-    else
-        return 0; // Não é um palíndromo
-}
+      // Inverte a string
+      printf("A string invertida Ã©: ");
+      inverterString(str);
+    printf("\n");
+    
+   
+     
+      // Verifica se a string Ã© um palÃ­ndromo
+      if (ehPalindromo(str, 100)) 
+          printf("%s Ã© um palÃ­ndromo.\n", str);
+      else
+          printf("%s nÃ£o Ã© um palÃ­ndromo.\n", str);
 
-int main() {
-    char str[100];
-
-    // Solicita a entrada da string ao usuário
-    printf("Digite uma string: ");
-    scanf("%s", str);
-
-    // Verifica se a string é um palíndromo
-    if (ehPalindromo(str))
-        printf("%s é um palíndromo.\n", str);
-    else
-        printf("%s não é um palíndromo.\n", str);
-
-    return 0;
-}
+      return 0;
+  }
