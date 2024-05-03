@@ -13,6 +13,30 @@ int main(void){
         }
         printf("\n");
     }
-    desalocaMatriz(A, m);
+    desalocaMatriz(A, 10);
     return 0;
+}
+
+int** alocaMatriz(int m, int n) // m linhas e n colunas
+{
+    int **x;
+    x = (int **)malloc(m * sizeof(int *));
+    for(int i = 0; i < m; i++){
+        x[i] = (int *)malloc(n * sizeof(int));
+    }
+    return x;
+
+
+}
+void desalocaMatriz(int **x, int m)
+{
+    for(int i = 0; i < m; i++){
+        free(x[i]);
+    }
+    free(x);
+
+}
+void matrizAleotorio(int **x, int m, int n)
+{
+
 }
