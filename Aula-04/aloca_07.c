@@ -15,6 +15,10 @@ int main(void){
         }
         printf("\n");
     }
-    desalocaMatriz(A, 10);
+    desalocaMatriz(A);
     return 0;
+}
+
+int elementoMatriz(int *x, int n, int i, int j){
+    return x[i*n + j];
 }
