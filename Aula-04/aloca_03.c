@@ -11,23 +11,18 @@ void gemm(int m, int n, int k, double alpha,
 int main(void)
 {
     double **matA, **matB, **matC;
-    double *blocoA, *blocoB, *blocoC;
     double *x;
 
     x = (double *) malloc(N * sizeof(double));
-    blocoA = (double *) malloc(N * N * sizeof(double));
-    blocoB = (double *) malloc(N * N * sizeof(double));
-    blocoC = (double *) malloc(N * N * sizeof(double));
 
     matA = (double **) malloc(N * sizeof(double *));
     matB = (double **) malloc(N * sizeof(double *));
     matC = (double **) malloc(N * sizeof(double *));
-    
     for(int i = 0; i < N; i++)
     {
-        matA[i] = &blocoA[i * N];
-        matB[i] = &blocoB[i * N];
-        matC[i] = &blocoC[i * N];
+        matA[i] = (double *) malloc(N * sizeof(double));
+        matB[i] = (double *) malloc(N * sizeof(double));
+        matC[i] = (double *) malloc(N * sizeof(double));
     }
 
     for(int i = 0; i < N; i++)
@@ -51,11 +46,12 @@ int main(void)
     printf("matC[N-1][N-1] = %f\n", matC[N-1][N-1]);
 
     free(x);
-    
-    free(blocoA);
-    free(blocoB);
-    free(blocoC);
-    
+    for(int i = 0; i < N; i++)
+    {
+        free(matA[i]);
+        free(matB[i]);
+        free(matC[i]);
+    }
     free(matA);
     free(matB);
     free(matC);

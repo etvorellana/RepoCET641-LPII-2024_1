@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+/* guarde internamente como um array unidimensional e 
+retorne um ponteiro de ponteiros*/
 int** alocaMatriz(int m, int n); // m linhas e n colunas
-void desalocaMatriz(int **x, int m);
+void desalocaMatriz(int **x);
 void matrizAleotorio(int **x, int m, int n);
 int main(void){
     int **A;
@@ -17,26 +19,3 @@ int main(void){
     return 0;
 }
 
-int** alocaMatriz(int m, int n) // m linhas e n colunas
-{
-    int **x;
-    x = (int **)malloc(m * sizeof(int *));
-    for(int i = 0; i < m; i++){
-        x[i] = (int *)malloc(n * sizeof(int));
-    }
-    return x;
-
-
-}
-void desalocaMatriz(int **x, int m)
-{
-    for(int i = 0; i < m; i++){
-        free(x[i]);
-    }
-    free(x);
-
-}
-void matrizAleotorio(int **x, int m, int n)
-{
-
-}

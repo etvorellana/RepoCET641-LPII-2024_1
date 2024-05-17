@@ -1,24 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
-int* alocaMatriz(int m, int n); // m linhas e n colunas
-void desalocaMatriz(int *x);
-int elementoMatriz(int *x, int n, int i, int j);
-void matrizAleotorio(int *x, int m, int n);
+typedef struct {
+    int n;
+    int *x;
+}TVetor;
+TVetor alocaArray(int n);
+void desaloca(TVetor x);
+void arrayAleotorio(TVetor x);
 int main(void){
-    int *A;
-    A = alocaMatriz(10, 10);
-    matrizAleotorio(A, 10, 10);
-    for(int i = 0; i < 10; i++){   
-        for(int j = 0; j < 10; j++){
-            printf("A[%d][%d] = %d ", i, j, 
-                        elementoMatriz(A, 10, i, j));
-        }
-        printf("\n");
+    TVetor x;
+    x = alocaArray(10);
+    arrayAleotorio(x);
+    for(int i = 0; i < x.n; i++){
+        printf("x[%d] = %d\n", i, x.x[i]);
     }
-    desalocaMatriz(A);
+    desaloca(x);
     return 0;
-}
-
-int elementoMatriz(int *x, int n, int i, int j){
-    return x[i*n + j];
 }

@@ -1,29 +1,17 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-#define N 2048
+#define N 595
 
-void gemm(int m, int n, int k, double alpha, 
-            double **A, double **B, double beta, double **C);
+//void gemm(int m, int n, int k, double alpha, 
+//            double **A, double **B, double beta, double **C);
 
-
+void gemm(int m, int n, int k, double alpha, double A[N][N], double B[N][N], double beta, double C[N][N]);
 
 int main(void)
 {
-    double **matA, **matB, **matC;
-    double *x;
-
-    x = (double *) malloc(N * sizeof(double));
-
-    matA = (double **) malloc(N * sizeof(double *));
-    matB = (double **) malloc(N * sizeof(double *));
-    matC = (double **) malloc(N * sizeof(double *));
-    for(int i = 0; i < N; i++)
-    {
-        matA[i] = (double *) malloc(N * sizeof(double));
-        matB[i] = (double *) malloc(N * sizeof(double));
-        matC[i] = (double *) malloc(N * sizeof(double));
-    }
+    double matA[N][N];
+    double matB[N][N];
+    double matC[N][N];
 
     for(int i = 0; i < N; i++)
     {
@@ -45,22 +33,10 @@ int main(void)
     printf("matC[N-1][0] = %f\n", matC[N-1][0]);
     printf("matC[N-1][N-1] = %f\n", matC[N-1][N-1]);
 
-    free(x);
-    for(int i = 0; i < N; i++)
-    {
-        free(matA[i]);
-        free(matB[i]);
-        free(matC[i]);
-    }
-    free(matA);
-    free(matB);
-    free(matC);
-
     return 0;
 }
 
-void gemm(int m, int n, int k, double alpha, 
-            double **A, double **B, double beta, double **C)
+void gemm(int m, int n, int k, double alpha, double A[N][N], double B[N][N], double beta, double C[N][N])
 {
     int i, j, l;
     for (i = 0; i < m; i++)

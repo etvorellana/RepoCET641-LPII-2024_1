@@ -1,55 +1,45 @@
 #include <stdio.h>
-
-#define N 595
-
-//void gemm(int m, int n, int k, double alpha, 
-//            double **A, double **B, double beta, double **C);
-
-void gemm(int m, int n, int k, double alpha, double A[N][N], double B[N][N], double beta, double C[N][N]);
+#include <stdlib.h>
 
 int main(void)
 {
-    double matA[N][N];
-    double matB[N][N];
-    double matC[N][N];
+    char *pch;
+    int* pa;
+    double *px;
+    void* p;  
 
-    for(int i = 0; i < N; i++)
+    // podemos alocar um bloco de memória de tamanho 8 bytes da seguintes forma:
+    p = malloc(8);
+    // p é um ponteiro void, que pode apontar para qualquer tipo de dado
+    px = (double *)p;
+    // temos 8 bytes que permite armazenar um double
+    *px = 3.14;
+    double x = *px;
+    printf("x = %f\n", x);
+    *px *= 2;
+    printf("x = %f, *px = %f\n", x, *px);
+    // Os mesmos 8 bytes podem ser utilizados para armazenar dois inteiros 
+    pa = (int *)p;
+    pa[0] = 42;
+    pa[1] = 43;
+    printf("pa[0] = %d, pa[1] = %d\n", pa[0], pa[1]);
+    pa[0]++;
+    if(pa[0] == pa[1])
+        printf("pa[0] == pa[1]\n");
+    else
+        printf("pa[0] != pa[1]\n");
+    // se tentamos acessar este endereço de memora com o ponteiro px ele ainda
+    // avalia o conteúdo como um double
+    printf("px = %f\n", *px);
+    // Os mesmos 8 bytes podem ser utilizados para armazenar 8 char
+    pch = (char *)p;
+    for(int i = 0; i < 7; i++)
     {
-        for(int j = 0; j < N; j++)
-        {
-            matA[i][j] = 1.0;
-            matB[i][j] = 0.5;
-            matC[i][j] = 0.0;
-        }
+        pch[i] = 'a' + i;
     }
-
-    double alpha = 1.0;
-    double beta = 0.0;
-
-    gemm(N, N, N, alpha, matA, matB, beta, matC);
-
-    printf("matC[0][0] = %f\n", matC[0][0]);
-    printf("matC[0][N-1] = %f\n", matC[0][N-1]);
-    printf("matC[N-1][0] = %f\n", matC[N-1][0]);
-    printf("matC[N-1][N-1] = %f\n", matC[N-1][N-1]);
-
+    pch[7] = '\0';
+    printf("pch = %s\n", pch);
+    // para liberar a memória alocada usamos a função free
+    free(p);
     return 0;
-}
-
-void gemm(int m, int n, int k, double alpha, double A[N][N], double B[N][N], double beta, double C[N][N])
-{
-    int i, j, l;
-    for (i = 0; i < m; i++)
-    {
-        for (j = 0; j < n; j++)
-        {
-            double soma = 0;
-            for (l = 0; l < k; l++)
-            {
-                soma += A[i][l] * B[l][j];
-            }
-            C[i][j] = alpha * soma + beta * C[i][j];
-        }
-    }
-    
 }

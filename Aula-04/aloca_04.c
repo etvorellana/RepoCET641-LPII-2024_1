@@ -1,45 +1,73 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int* alocaArray(int n);
-void desaloca(int *x);
-void arrayAleotorio(int *x, int n);
+#define N 2048
+
+void gemm(int m, int n, int k, double alpha, 
+            double **A, double **B, double beta, double **C);
+
+
 
 int main(void)
 {
-    int *x;
-    x = alocaArray(10);
-    arrayAleotorio(x, 10);
-    for(int i = 0; i < 10; i++)
+    double **matA, **matB, **matC;
+    double *blocoA, *blocoB, *blocoC;
+    double *x;
+
+    x = (double *) malloc(N * sizeof(double));
+    blocoA = (double *) malloc(N * N * sizeof(double));
+    blocoB = (double *) malloc(N * N * sizeof(double));
+    blocoC = (double *) malloc(N * N * sizeof(double));
+
+    
+    for(int i = 0; i < N; i++)
     {
-        printf("x[%d] = %d\n", i, x[i]);
+        for(int j = 0; j < N; j++)
+        {
+            blocoA[i*N + j] = 1.0;
+            blocoB[i*N + j] = 0.5;
+            blocoC[i*N + j] = 0.0;
+        }
     }
-    desaloca(x);
+
+    double alpha = 1.0;
+    double beta = 0.0;
+
+    gemm(N, N, N, alpha, matA, matB, beta, matC);
+
+    printf("matC[0][0] = %f\n", matC[0][0]);
+    printf("matC[0][N-1] = %f\n", matC[0][N-1]);
+    printf("matC[N-1][0] = %f\n", matC[N-1][0]);
+    printf("matC[N-1][N-1] = %f\n", matC[N-1][N-1]);
+
+    free(x);
+    
+    free(blocoA);
+    free(blocoB);
+    free(blocoC);
+    
+    free(matA);
+    free(matB);
+    free(matC);
+
     return 0;
 }
 
-void alocaArray2(int **x, int n)
+void gemm(int m, int n, int k, double alpha, 
+            double **A, double **B, double beta, double **C)
 {
-    *x = (int*) malloc(n * sizeof(int));
-}
-
-int* alocaArray(int n)
-{
-    int *x;
-    x = (int*) malloc(n * sizeof(int));
-    return x;
-    // return (int*) malloc(n * sizeof(int));
-}
-
-void desaloca(int *x)
-{
-    free(x);
-}
-
-void arrayAleotorio(int *x, int n)
-{
-    for(int i = 0; i < n; i++)
+    int i, j, l;
+    for (i = 0; i < m; i++)
     {
-        x[i] = rand() % 100;
+        for (j = 0; j < n; j++)
+        {
+            double soma = 0;
+            for (l = 0; l < k; l++)
+            {
+                soma += A[i][l] * B[l][j];
+            }
+            C[i][j] = alpha * soma + beta * C[i][j];
+        }
     }
+    
 }
