@@ -28,9 +28,10 @@ int main()
     return 0;
 }
 
-void dec2bin(int a);
+void dec2bin(int a)
 {
     if(a == 0) {
+        printf("0");
         return;
     } else {
         dec2bin(a / 2);

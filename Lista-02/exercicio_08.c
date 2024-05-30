@@ -20,8 +20,8 @@ int main(void)
 {
     
 
-    int img[480][640], hist[256] = {0};
-    int i, j;
+    int img[480][640];
+    int i=480, j=640;
     randomImg(img, 480, 640);
     printf("O valor máximo da matriz é %d\n", maxValue(img, &i, &j));
     printf("O valor máximo da matriz está na linha %d e coluna %d\n", i, j);
@@ -33,7 +33,7 @@ int main(void)
 
     return 0;
 }
-
+    maxValue(    img,              &i,       &j
 int maxValue(int img[ ][640], int *lin, int *col)
 {
     int max = img[0][0];

@@ -14,6 +14,7 @@ int main(void)
     px = (double *)p;
     // temos 8 bytes que permite armazenar um double
     *px = 3.14;
+    printf("%p, %f, %p, %p\n", px, *px, &px, *(&px));
     double x = *px;
     printf("x = %f\n", x);
     *px *= 2;
@@ -23,6 +24,7 @@ int main(void)
     pa[0] = 42;
     pa[1] = 43;
     printf("pa[0] = %d, pa[1] = %d\n", pa[0], pa[1]);
+    printf("*px = %f\n", *px);
     pa[0]++;
     if(pa[0] == pa[1])
         printf("pa[0] == pa[1]\n");

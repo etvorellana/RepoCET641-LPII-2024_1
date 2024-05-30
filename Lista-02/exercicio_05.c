@@ -10,6 +10,8 @@ fazer distinção entre maiúsculas e minúsculas.
 #include <string.h>
 #include "lista-02.h"
 
+void contaCaracteres(char str[ ], int con [ ]);
+
 int main() {
     char str[100];
     // criando um array de contadores preenchido com zeros
@@ -56,5 +58,22 @@ void contaCaracteresR(char str[ ], int con [ ])
             con[str[0] - 'A']++;
         }
         contaCaracteresR(str + 1, con);
+    }
+}
+
+void contaCaracteresR2(char str[ ], int con [ ])
+{
+    if(strlen(str) == 0)
+     return;
+    else {
+        if (str[strlen(str)-1] >= 'a' && str[strlen(str)-1] <= 'z') {
+            con[str[strlen(str)-1] - 'a']++;
+        } else if (str[strlen(str)-1] >= 'A' && str[strlen(str)-1] <= 'Z') {
+            con[str[strlen(str)-1] - 'A']++;
+        }
+        char a = str[strlen(str)-1];
+        str[strlen(str)-1] = '\0';
+        contaCaracteresR(str, con);
+        str[strlen(str)] = a;
     }
 }
