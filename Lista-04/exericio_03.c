@@ -1,4 +1,5 @@
 /*
+    Exercicio 3.
     Implemente as seguintes funções para alocar dinamicamente strings 
     na forma de arrays de caracteres (c strings). 
     a. char* alocaStr(int a): Esta função aloca um array de caracteres 
@@ -24,23 +25,71 @@
 char* alocaStr(int a);
 char* alocaStrEsp(int a);
 char* alocaStrCheia(int a, char ch);
+int menuDeTestes(void);
 
 int main(void)
 {
-    char* str = alocaStr(10);
-    char* strEsp = alocaStrEsp(10);
-    char* strCheia = alocaStrCheia(10, 'a');
-
-    printf("str: %s\n", str);
-    printf("strEsp: %s\n", strEsp);
-    printf("strCheia: %s\n", strCheia);
-
-    free(str);
-    free(strEsp);
-    free(strCheia);
+    printf("Exercício 3.\n");
+    int opcao;
+    do
+    {
+        opcao = menuDeTestes();
+        switch (opcao)
+        {
+            case 1:
+                printf("Alocando string de caracteres.\n");
+                char* str = alocaStr(10);
+                printf("String alocada: %s\n", str);
+                printf("Tamanho da string: %ld\n", strlen(str));
+                printf("Preenchendo string com caracteres.\n");
+                for(int i = 0; i < 10; i++)
+                    str[i] = 'a' + i;
+                str[10] = '\0';
+                printf("String preenchida: %s\n", str);
+                printf("Tamanho da string: %ld\n", strlen(str));
+                free(str);
+                break;
+            case 2:
+                printf("Alocando string de caracteres com espaços.\n");
+                char* strEsp = alocaStrEsp(10);
+                printf("String alocada: ->%s<-\n", strEsp);
+                printf("Tamanho da string: %ld\n", strlen(strEsp));
+                free(strEsp);
+                break;
+            case 3:
+                printf("Alocando string de caracteres com caracteres iguais.\n");
+                char* strCheia = alocaStrCheia(10, 'a');
+                printf("String alocada: %s\n", strCheia);
+                printf("Tamanho da string: %ld\n", strlen(strCheia));
+                free(strCheia);
+                break;
+            case 4:
+                printf("Saindo...\n");
+                break;
+        }
+    } while(opcao != 4);
 
     return 0;
 }
+
+
+int menuDeTestes(void)
+{
+    int opcao;
+    printf("Escolha uma opção:\n");
+    printf("1. Testar alocaStr\n");
+    printf("2. Testar alocaStrEsp\n");
+    printf("3. Testar alocaStrCheia\n");
+    printf("4. Sair\n");
+    scanf("%d", &opcao);
+    while(opcao < 1 || opcao > 4)
+    {
+        printf("Opção inválida. Digite novamente.\n");
+        scanf("%d", &opcao);
+    }
+    return opcao;
+}
+
 
 char* alocaStr(int a)
 {
