@@ -26,7 +26,7 @@ int main(void)
     return 0;
 }
 
-int mdc(int x, int y)
+int mdcR(int x, int y)
 {
     if (x == y)
     {
@@ -40,4 +40,20 @@ int mdc(int x, int y)
     {
         return mdc(y, x);
     }
+}
+
+int mdcR(int x, int y)
+{
+    while(x != y)
+    {
+        if(x > y)
+        {
+            x = x - y;
+        }
+        else
+        {
+            y = y - x;
+        }
+    }
+    return x;
 }

@@ -14,3 +14,9 @@ int maxValue(int img[ ][640], int *lin, int *col);
 void dec2bin(int dec);
 int mdc(int x, int y);
 int mod(int x, int y);
+
+int potencia(int x, int n);
+double vpol(int n, double c[ ], double x);
+double potenciaD(double x, int n);
+void inverte(int n);
+int somaAlgarismos(int n);
