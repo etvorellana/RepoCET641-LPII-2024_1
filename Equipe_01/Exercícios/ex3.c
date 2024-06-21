@@ -4,7 +4,7 @@
 int main() {
     int tamanho, tipo;
 
-    printf("Digite o tamanho da pir‚mide: ");
+    printf("Digite o tamanho da pir√¢mide: ");
     scanf("%d", &tamanho);
 
     printf("Digite o tipo de piramide (0) para verdade e (1) falsidade: ");
