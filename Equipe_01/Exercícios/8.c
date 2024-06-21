@@ -1,10 +1,10 @@
 #include <stdio.h>
 
-/*Implemente uma funÁ„o para calcular o valor mÈdio de um conjunto de valores armazenados em um array de valores de tipo double. O cabeÁalho da funÁ„o deve ser:
+/*Implemente uma fun√ß√£o para calcular o valor m√©dio de um conjunto de valores armazenados em um array de valores de tipo double. O cabe√ßalho da fun√ß√£o deve ser:
 double valorMedioG(double x[ ]);
-A quantidade de elementos no array È armazenada na vari·vel global, N, declarada como sendo de tipo int. Implemente uma aplicaÁ„o que demonstra a aplicaÁ„o da funÁ„o.*/
+A quantidade de elementos no array √© armazenada na vari√°vel global, N, declarada como sendo de tipo int. Implemente uma aplica√ß√£o que demonstra a aplica√ß√£o da fun√ß√£o.*/
 
-//vari·vel global
+//vari√°vel global
 int N;
 
 //funcao usada para calcular o valor medio de uma array com numeros tipo double
@@ -28,10 +28,10 @@ int main(void) {
   //descobrir o tamanho da array valores
   N = sizeof(valores) / sizeof(valores[0]);
 
-  //uso da funÁao e atribuiÁao do valor encontrado para a variavel media
+  //uso da fun√ßao e atribui√ßao do valor encontrado para a variavel media
   double media = valorMedioG(valores);
 
-  printf("O valor mÈdio È: %.2f\n", media);
+  printf("O valor m√©dio √©: %.2f\n", media);
 
   return 0;
 }
