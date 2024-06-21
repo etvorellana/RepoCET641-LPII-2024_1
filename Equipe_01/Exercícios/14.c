@@ -3,7 +3,7 @@
 
 void normaliza(double x_inout[], int n);
 
-// Função para calcular o valor médio de um array
+// FunÃ§Ã£o para calcular o valor mÃ©dio de um array
 double valorMedioG(double x[], int n) {
     double soma = 0.0;
 
@@ -11,17 +11,17 @@ double valorMedioG(double x[], int n) {
     for (int i = 0; i < n; i++)
         soma += x[i];
 
-    // Calcula a média
+    // Calcula a mÃ©dia
     double media = soma / n;
 
     return media;
 }
 
-// Função para normalizar os valores de um array para que tenham média zero
+// FunÃ§Ã£o para normalizar os valores de um array para que tenham mÃ©dia zero
 void normaliza(double x_inout[], int n) {
-    double media = valorMedioG(x_inout, n); // Calcula a média dos valores do array
+    double media = valorMedioG(x_inout, n); // Calcula a mÃ©dia dos valores do array
     for (int i = 0; i < n; i++) {
-        x_inout[i] -= media; // Subtrai a média de cada elemento do array
+        x_inout[i] -= media; // Subtrai a mÃ©dia de cada elemento do array
     }
 }
 
@@ -35,10 +35,10 @@ int main() {
     }
     printf("\n");
 
-    // Normaliza o array para ter média zero
+    // Normaliza o array para ter mÃ©dia zero
     normaliza(array, n);
 
-    printf("Valores normalizados (média zero):\n");
+    printf("Valores normalizados (mÃ©dia zero):\n");
     for (int i = 0; i < n; i++) {
         printf("%.2f ", array[i]);
     }
