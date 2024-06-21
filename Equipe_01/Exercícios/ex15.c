@@ -11,7 +11,7 @@ int main(void) {
   int tamanho = sizeof(array) / sizeof(array[0]);
 
   //chama a funcao criada para inverter os elementos da array, tamanho indicando o
-  //numero total de elementos e o indice sendo 0 para começar desde o primeiro elemento na array
+  //numero total de elementos e o indice sendo 0 para comeÃ§ar desde o primeiro elemento na array
   inverterValor(array, tamanho, 0);
 
   //imprimir na tela
