@@ -5,10 +5,10 @@ int main() {
   int tamanho, i, j;
   int tipo;
 
-  printf("Digite a altura do tri‚ngulo: ");
+  printf("Digite a altura do tri√¢ngulo: ");
   scanf("%d", &tamanho);
 
-  printf("Escolha o tipo de tri‚ngulo (1-4):\n");
+  printf("Escolha o tipo de tri√¢ngulo (1-4):\n");
   printf("1 - Tipo 1\n");
   printf("2 - Tipo 2 \n");
   printf("3 - Tipo 3\n");
