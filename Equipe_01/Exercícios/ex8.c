@@ -7,10 +7,10 @@ int main(void) {
   //descobrir o tamanho da array valores
   N = sizeof(valores) / sizeof(valores[0]);
 
-  //uso da funçao e atribuiçao do valor encontrado para a variavel media
+  //uso da funÃ§ao e atribuiÃ§ao do valor encontrado para a variavel media
   double media = valorMedioG(valores);
 
-  printf("O valor médio é: %.2f\n", media);
+  printf("O valor mÃ©dio Ã©: %.2f\n", media);
 
   return 0;
 }
