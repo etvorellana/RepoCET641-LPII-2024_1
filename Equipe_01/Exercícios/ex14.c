@@ -12,10 +12,10 @@ int main() {
     }
     printf("\n");
 
-    // Normaliza o array para ter média zero
+    // Normaliza o array para ter mÃ©dia zero
     normaliza1(array, n);
 
-    printf("Valores normalizados (média zero):\n");
+    printf("Valores normalizados (mÃ©dia zero):\n");
     for (int i = 0; i < n; i++) {
         printf("%.2f ", array[i]);
     }
