@@ -8,7 +8,7 @@ int main(void) {
 
     double desvio = desvioPadraoG1(valores, N);
 
-    printf("Desvio Padr„o: %.2f\n", desvio);
+    printf("Desvio Padr√£o: %.2f\n", desvio);
 
     return 0;
 }
