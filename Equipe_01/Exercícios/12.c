@@ -1,13 +1,13 @@
 #include <stdio.h>
 
-/* Modifique a funÁ„o do ExercÌcio 8 para que, agora, receba o tamanho do array como um par‚metro passado por valor. A nova funÁ„o deve ter o seguinte cabeÁalho:
+/* Modifique a fun√ß√£o do Exerc√≠cio 8 para que, agora, receba o tamanho do array como um par√¢metro passado por valor. A nova fun√ß√£o deve ter o seguinte cabe√ßalho:
     double valorMedio(double x[ ], int n);
-A quantidade de elementos no array È passada no par‚metro n. Implemente uma aplicaÁ„o que demonstra a aplicaÁ„o da funÁ„o. */
+A quantidade de elementos no array √© passada no par√¢metro n. Implemente uma aplica√ß√£o que demonstra a aplica√ß√£o da fun√ß√£o. */
 
 //funcao com uma array de numeros tipo double e um inteiro n como parametros
 //retorna um valor double, servindo pra representar a media ja calculada
 double valorMedio(double x[], int n) {
-  //È bom identificar o valor para evitar erros
+  //√© bom identificar o valor para evitar erros
   double soma = 0.0;
 
   //atraves disso, podemos percorrer a array e somar todos os elementos dentro dele, atribuindo o resultado a variavel soma
