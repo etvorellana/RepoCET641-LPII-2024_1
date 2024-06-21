@@ -10,23 +10,23 @@ int main() {
     double array[TAMANHO_ARRAY];
     srand(time(NULL));
 
-    // Preenche o array com valores aleatórios entre 0 e 4
+    // Preenche o array com valores aleatÃ³rios entre 0 e 4
     for (int i = 0; i < TAMANHO_ARRAY; i++) {
         array[i] = rand() % 5;
     }
 
-    N = TAMANHO_ARRAY; // Define o tamanho do array na variável global
+    N = TAMANHO_ARRAY; // Define o tamanho do array na variÃ¡vel global
 
-    printf("Valores aleatórios:\n");
+    printf("Valores aleatÃ³rios:\n");
     for (int i = 0; i < TAMANHO_ARRAY; i++) {
         printf("%.1f ", array[i]);
     }
     printf("\n");
 
-    // Normaliza o array para ter média zero
+    // Normaliza o array para ter mÃ©dia zero
     normaliza(array);
 
-    printf("Valores normalizados (média zero):\n");
+    printf("Valores normalizados (mÃ©dia zero):\n");
     for (int i = 0; i < TAMANHO_ARRAY; i++) {
         printf("%.2f ", array[i]);
     }
