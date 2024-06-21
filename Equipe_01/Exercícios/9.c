@@ -34,7 +34,7 @@ double desvioPadraoG(double x[]) {
     somadosquad += pow(x[i] - media, 2);
 
   //calcula-se a variancia ao dividir a soma dos quadrados das
-  //diferenÁas pela quantidade de elementos N
+  //diferen√ßas pela quantidade de elementos N
   double var = somadosquad / N;
   //o desvio padrao seria a raiz quadrada do valor contido em var
   double desvioPadrao = sqrt(var);
@@ -55,7 +55,7 @@ int main(void) {
   double desvio = desvioPadraoG(valores);
 
   //imprime o valor encontrado acima
-  printf("Desvio Padr„o: %.2f\n", desvio);
+  printf("Desvio Padr√£o: %.2f\n", desvio);
 
   return 0;
 }
