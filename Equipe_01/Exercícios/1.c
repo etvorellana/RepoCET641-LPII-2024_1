@@ -6,7 +6,7 @@ int desenhaQuadrado(int tamanho, int vazado) {
 
 //verifica se os valores sao validos
   if (tamanho <= 0 || tamanho > 20) {
-    printf("Tamanho inv·lido");
+    printf("Tamanho inv√°lido");
     return 1;
   }
 
@@ -53,7 +53,7 @@ int main(void) {
   printf("Digite o tamanho do quadrado: ");
   scanf("%d", &tamanho);
 
-  printf("\nDigite se o quadrado ser· vazado ou n„o(0 para n„o e 1 para sim): ");
+  printf("\nDigite se o quadrado ser√° vazado ou n√£o(0 para n√£o e 1 para sim): ");
   scanf("%d", &vazado);
 
   desenhaQuadrado(tamanho, vazado);
