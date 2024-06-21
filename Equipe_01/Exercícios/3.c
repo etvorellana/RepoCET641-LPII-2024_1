@@ -4,12 +4,12 @@
 int desenharPiramide(int tamanho, int tipo) {
 
   if(tamanho < 1 || tamanho > 20) {
-    printf("Tamanho inv·lido");
+    printf("Tamanho inv√°lido");
     return 1;
   }
 
   if(tipo != 0 && tipo != 1){
-    printf("Tipo inv·lido");
+    printf("Tipo inv√°lido");
     return 1;
   }
 
@@ -56,7 +56,7 @@ int desenharPiramide(int tamanho, int tipo) {
 int main() {
     int tamanho, tipo;
 
-    printf("Digite o tamanho da pir‚mide: ");
+    printf("Digite o tamanho da pir√¢mide: ");
     scanf("%d", &tamanho);
 
     printf("Digite o tipo de piramide (0) para verdade e (1) falsidade: ");
