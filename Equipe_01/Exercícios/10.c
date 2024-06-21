@@ -7,7 +7,7 @@
 
 int N;
 
-// Função para calcular o valor médio de um array
+// FunÃ§Ã£o para calcular o valor mÃ©dio de um array
 double valorMedioG(double x[]) {
     double soma = 0.0;
 
@@ -15,17 +15,17 @@ double valorMedioG(double x[]) {
     for (int i = 0; i < N; i++)
         soma += x[i];
 
-    // Calcula a média
+    // Calcula a mÃ©dia
     double media = soma / N;
 
     return media;
 }
 
-// Função para normalizar os valores de um array para que tenham média zero
+// FunÃ§Ã£o para normalizar os valores de um array para que tenham mÃ©dia zero
 void normaliza(double x_inout[]) {
-    double media = valorMedioG(x_inout); // Calcula a média dos valores do array
+    double media = valorMedioG(x_inout); // Calcula a mÃ©dia dos valores do array
     for (int i = 0; i < N; i++) {
-        x_inout[i] -= media; // Subtrai a média de cada elemento do array
+        x_inout[i] -= media; // Subtrai a mÃ©dia de cada elemento do array
     }
 }
 
@@ -33,23 +33,23 @@ int main() {
     double array[TAMANHO_ARRAY];
     srand(time(NULL));
 
-    // Preenche o array com valores aleatórios entre 0 e 4
+    // Preenche o array com valores aleatÃ³rios entre 0 e 4
     for (int i = 0; i < TAMANHO_ARRAY; i++) {
         array[i] = rand() % 5;
     }
 
-    N = TAMANHO_ARRAY; // Define o tamanho do array na variável global
+    N = TAMANHO_ARRAY; // Define o tamanho do array na variÃ¡vel global
 
-    printf("Valores aleatórios:\n");
+    printf("Valores aleatÃ³rios:\n");
     for (int i = 0; i < TAMANHO_ARRAY; i++) {
         printf("%.1f ", array[i]);
     }
     printf("\n");
 
-    // Normaliza o array para ter média zero
+    // Normaliza o array para ter mÃ©dia zero
     normaliza(array);
 
-    printf("Valores normalizados (média zero):\n");
+    printf("Valores normalizados (mÃ©dia zero):\n");
     for (int i = 0; i < TAMANHO_ARRAY; i++) {
         printf("%.2f ", array[i]);
     }
