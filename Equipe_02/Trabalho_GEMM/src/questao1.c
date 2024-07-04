@@ -1,5 +1,3 @@
-// vim: sw=2 et
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

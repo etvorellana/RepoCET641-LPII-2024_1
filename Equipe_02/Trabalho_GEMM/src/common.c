@@ -17,9 +17,8 @@ double *alocaMatriz1d(const int n, const int m)
 void dgemm1d(const int n, const int m, const int l, double alpha,
   double *A, double *B, double beta, double *C)
 {
-  // algoritmo lento :pray:
-
-  // gemm -> C = alpha * A * B + beta * C (A: n x m, B: m x l, C: n x l)
+  // A: n x m; B: m x l, C: n x l
+  // C <- alpha * A * B + beta * C
 
   for (int lin = 0; lin < n; lin++) {
     for (int col = 0; col < l; col++) {
