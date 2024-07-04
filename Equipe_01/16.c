@@ -1,49 +1,57 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
-void inverterString(char str[]) {
-    // Verifica se a string tem tamanho 0 ou 1, nesse caso não há nada para inverter
-    if (strlen(str) <= 1)
+void inverterString(char str[], int i, int n) {
+
+    if (i >= n){
         return;
+    } else {
+        char temp;
 
-    // Troca o primeiro e o último caractere
-    char temp = str[0];
-    str[0] = str[strlen(str) - 1];
-    str[strlen(str) - 1] = temp;
+        temp = str[i];
+        str[i] = str[n];
+        str[n] = temp;
 
-    // Chama a função recursivamente com a string sem o primeiro e o último caractere
-    inverterString(&str[1]);
+        inverterString(str, i + 1, n - 1); 
+      
+    }
 }
 
-int ehPalindromo(char str[]) {
-    // String auxiliar para armazenar a cópia da string original
-    char strInvertida[strlen(str) + 1];
+int ehPalindromo(char str[], int i, int n){
 
-    // Copia a string original para a string auxiliar
-    strcpy(strInvertida, str);
+    if(i >= n){
+        return 1;
+    }
 
-    // Inverte a string auxiliar
-    inverterString(strInvertida);
+    else{
+        if (str[i] != str[n]){
+            return 0;
+        }
+    }
 
-    // Compara a string original com a string invertida
-    if (strcmp(str, strInvertida) == 0)
-        return 1; // É um palíndromo
-    else
-        return 0; // Não é um palíndromo
+    return ehPalindromo(str, i + 1, n - 1); 
+  
 }
+  int main() {
 
-int main() {
-    char str[100];
+      char str[100];
 
-    // Solicita a entrada da string ao usuário
-    printf("Digite uma string: ");
-    scanf("%s", str);
+      // Solicita a entrada da string ao usuÃ¡rio
+      printf("Digite uma string(nÃºmeros ou letras minÃºsculas): ");
+      fgets(str,100,stdin);
+      str[strlen(str) - 1] = '\0';
 
-    // Verifica se a string é um palíndromo
-    if (ehPalindromo(str))
-        printf("%s é um palíndromo.\n", str);
-    else
-        printf("%s não é um palíndromo.\n", str);
+    int n = strlen(str);
 
-    return 0;
-}
+    inverterString(str,0, n - 1);
+    printf("A string invertida Ã©: %s\n", str);
+      
+    
+      if (ehPalindromo(str,0, n - 1))
+          printf("Ã‰ um palÃ­ndromo.\n");
+      else
+          printf("NÃ£o Ã© um palÃ­ndromo.\n");
+
+      return 0;
+  }

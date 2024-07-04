@@ -3,7 +3,7 @@ int N;
 int desenhaQuadrado(int tamanho, int vazado) {
 
   if (tamanho <= 0 || tamanho > 20) {
-    printf("Tamanho inválido");
+    printf("Tamanho invÃ¡lido");
     return 1;
   }
 
@@ -46,68 +46,61 @@ int desenhaQuadrado(int tamanho, int vazado) {
 
 int desenhaTriangulo(int tamanho, int tipo) {
   if (tamanho < 1 || tamanho > 20) {
-    printf("Tamanho inválido");
+    printf("Tamanho invÃ¡lido");
     return 1;
-  } else
+  } else {
+
+    char linha[21];
 
     switch (tipo) {
     case 1:
       for (int i = 1; i <= tamanho; i++) {
-        for (int j = 1; j <= i; j++) {
-          printf("* ");
-        }
+        desenhaLinhaR(i, linha);
         printf("\n");
       }
       break;
     case 2:
       for (int i = tamanho; i >= 1; i--) {
-        for (int j = 1; j <= i; j++) {
-          printf("* ");
-        }
-        for (int j = 1; j <= tamanho - i; j++) {
-          printf("  ");
-        }
+        desenhaLinhaR(i, linha);
         printf("\n");
       }
       break;
     case 3:
       for (int i = tamanho; i >= 1; i--) {
         for (int j = 1; j <= tamanho - i; j++) {
-          printf("  ");
+          printf(" ");
         }
-        for (int j = 1; j <= i; j++) {
-          printf("* ");
-        }
+        desenhaLinhaR(i, linha);
         printf("\n");
       }
       break;
     case 4:
       for (int i = 1; i <= tamanho; i++) {
         for (int j = tamanho - i; j >= 1; j--) {
-          printf("  ");
+          printf(" ");
         }
-        for (int j = 1; j <= i; j++) {
-          printf("* ");
-        }
+        desenhaLinhaR(i, linha);
         printf("\n");
       }
       break;
     default:
-      printf("Tipo de triângulo inválido.\n");
+      printf("Tipo invÃ¡lido");
       return 2;
     }
+  }
+  return 0;
 }
 
 
 int desenharPiramide(int tamanho, int tipo) {
 
   if(tamanho < 1 || tamanho > 20) {
-    printf("Tamanho inválido");
+    printf("Tamanho invÃ¡lido");
     return 1;
   }
 
   if(tipo != 0 && tipo != 1){
-    printf("Tipo inválido");
+    printf("Tipo invÃ¡lido");
     return 1;
   }
 
@@ -158,22 +151,16 @@ int desenhaTabuleiro(int tamanho) {
   }
 
   for (int linha = 0; linha < tamanho * 5; linha++) {
-
     for (int coluna = 0; coluna < tamanho * 5; coluna++) {
 
-      if ((linha % 5 == 0 && coluna % 5 == 5) ||
-          (linha % 5 == 5 && coluna % 5 == 0) ||
-          (linha % 5 == 5 && coluna % 5 == 5)) {
+      if ((linha / 5 + coluna / 5) % 2 == 0) {
         printf("  ");
       } else {
-
-        if ((linha / 5) % 2 == (coluna / 5) % 2) {
-          printf("  ");
-        } else {
-          printf("* ");
+        
+      printf("* ");
         }
-      }
     }
+
     printf("\n");
   }
   return 0;
@@ -195,15 +182,15 @@ int desenhaLinha(int tamanho, char linha[]) {
 }
 
 
-int desenhaLinhaR(int tamanho, char linha[], int indice) {
-    if (indice == tamanho) {
-        linha[indice] = '\0';
-        return 0;
-    } else {
-        linha[indice] = '*';
-
-        return desenhaLinhaR(tamanho, linha, indice + 1);
-    }
+int desenhaLinhaR(int tamanho, char linha[]) {
+  if (tamanho < 1 || tamanho > 20) {
+    return 1;
+  } else {
+    linha[tamanho - 1] = '*';
+    desenhaLinhaR(tamanho - 1, linha);
+    printf("%c", linha[tamanho - 1]);
+  }
+  return 0;
 }
 
 
@@ -282,43 +269,53 @@ double valorMedio(double x[], int n) {
 }
 
 
-void inverterValor(double array[], int tamanho, int indice) {
+void inverterValor(double array[], int tamanho) {
 
-  if (indice == tamanho) {
+  if (tamanho == 0) {
     return;
   }
 
-  array[indice] = 1.0 / array[indice];
 
-  inverterValor(array, tamanho, indice + 1);
+  array[tamanho - 1] = 1.0 / array[tamanho -1];
+
+  inverterValor(array, tamanho - 1);
+
 }
 
 
-void inverterString(char str[]) {
-    if (strlen(str) <= 1)
+void inverterString(char str[], int i, int n) {
+
+    if (i >= n){
         return;
+    } else {
+        char temp;
 
-    char temp = str[0];
-    str[0] = str[strlen(str) - 1];
-    str[strlen(str) - 1] = temp;
+        temp = str[i];
+        str[i] = str[n];
+        str[n] = temp;
 
-    inverterString(&str[1]);
+        inverterString(str, i + 1, n - 1); 
+      
+    }
 }
 
 
-int ehPalindromo(char str[]) {
-    char strInvertida[strlen(str) + 1];
 
-    strcpy(strInvertida, str);
+int ehPalindromo(char str[], int i, int n){
 
-    inverterString(strInvertida);
-
-    if (strcmp(str, strInvertida) == 0)
+    if(i >= n){
         return 1;
-    else
-        return 0;
-}
+    }
 
+    else{
+        if (str[i] != str[n]){
+            return 0;
+        }
+    }
+
+    return ehPalindromo(str, i + 1, n - 1); 
+  
+}
 
 int encontrarMaiorRecursivo(int array[], int tamanho) {
     if (tamanho == 1) {
