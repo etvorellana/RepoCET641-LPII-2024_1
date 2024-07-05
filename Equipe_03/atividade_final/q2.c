@@ -68,29 +68,29 @@ int main(void) {
     double C_7_m_1 = matC[7 * Cc + (Cc - 1)];
 
     // Determina o maior valor da primeira linha da matriz C
-    double max_first_row = matC[0];
+    double maior_valor_linha = matC[0];
     for (int j = 1; j < Cc; j++) {
-        if (matC[0 * Cc + j] > max_first_row) {
-            max_first_row = matC[0 * Cc + j];
+        if (matC[0 * Cc + j] > maior_valor_linha) {
+            maior_valor_linha = matC[0 * Cc + j];
         }
     }
 
     // Abre o arquivo de saída para escrita
-    FILE *output_file = fopen("saida.log", "w");
-    if (output_file == NULL) {
+    FILE *arquivo_saida = fopen("saida.log", "w");
+    if (arquivo_saida == NULL) {
         printf("Erro ao abrir o arquivo de saída\n");
         return 1;
     }
 
     // Escreve os resultados no arquivo de saída
-    fprintf(output_file, "C[0][m-8] = %f\n", C_0_m_8);
-    fprintf(output_file, "C[0][m-1] = %f\n", C_0_m_1);
-    fprintf(output_file, "C[7][m-8] = %f\n", C_7_m_8);
-    fprintf(output_file, "C[7][m-1] = %f\n", C_7_m_1);
-    fprintf(output_file, "Maior valor da primeira linha: %f\n", max_first_row);
+    fprintf(arquivo_saida, "C[0][m-8] = %f\n", C_0_m_8);
+    fprintf(arquivo_saida, "C[0][m-1] = %f\n", C_0_m_1);
+    fprintf(arquivo_saida, "C[7][m-8] = %f\n", C_7_m_8);
+    fprintf(arquivo_saida, "C[7][m-1] = %f\n", C_7_m_1);
+    fprintf(arquivo_saida, "Maior valor da primeira linha: %f\n", maior_valor_linha);
 
     // Fecha o arquivo de saída
-    fclose(output_file);
+    fclose(arquivo_saida);
 
     // Libera a memória alocada para as matrizes
     free(matA);
