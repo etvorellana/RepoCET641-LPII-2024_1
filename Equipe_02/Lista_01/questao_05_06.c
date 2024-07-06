@@ -2,7 +2,7 @@
 #include "lista_01.h"
 int main(){
   int tamanho=5;
-  char linha[tamanho];
+  char linha[tamanho+1];
   desenhaLinha(tamanho,linha);
   putchar('\n');
   desenhaTriangulo(tamanho,4);
@@ -19,7 +19,7 @@ int desenhaLinha(int tamanho, char linha[]) {
 int desenhaTriangulo(int tamanho, int tipo) {
   if (tamanho > 20 || tamanho <= 1)
     return 2;
-  char linha[tamanho];
+  char linha[tamanho+1];
   switch (tipo) {
   case 1:
     for (int i = 0; i < tamanho; i++)

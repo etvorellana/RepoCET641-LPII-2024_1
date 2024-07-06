@@ -8,11 +8,8 @@ int main()
     printf("Digite o Tamanho do triangulo(1 e 20):");
     scanf("%d", &tamanho);
 
-
     printf("Tipo (1) (2) (3) (4):");
     scanf("%d", &tipo);
-
-
 
     desenhaTriangulo(tamanho,tipo);
     return 0;
@@ -54,7 +51,7 @@ int desenhaTriangulo(int tamanho, int tipo)
             case 4:
                 for(int i = 0; i < tamanho; i++)
                 {
-                    for(int j = 0; j < tamanho - i; j++)
+                    for(int j = 0; j < tamanho - i - 1; j++)
                         putchar(' ');
                     for(int j = 0; j <= i; j++)
                         putchar('*');

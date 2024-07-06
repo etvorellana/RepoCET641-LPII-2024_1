@@ -27,7 +27,8 @@ int main() {
     char arr[21];
 
     desenhaLinhaR(tam, arr);
-
+    arr[tam]='\0';
+    
     printf("%s", arr);
     printf("\n");
 

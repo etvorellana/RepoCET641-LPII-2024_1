@@ -29,4 +29,6 @@ int palindromo(char *c, int n, int i);
 int maiorNumero(int arr[], int n);
 int repeteC(char *c);
 
+int quantidadeA(char x[],int n);
+
 #endif // LISTA_01_H

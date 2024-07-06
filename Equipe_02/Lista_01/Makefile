@@ -1,5 +1,5 @@
 CC := gcc
-CFLAGS := -std=c99 -Wall -lm
+CFLAGS := -std=c99 -Wall -lm -O2
 SRC :=
 
 default:
